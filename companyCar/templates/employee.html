@@ -11,10 +11,12 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>identificación</th>
-                <th>nombre</th>
-                <th>edad</th>
+                <th>Id</th>
+                <th>Identificación</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +26,8 @@
                     <td>{{employee.identification}}</td>
                     <td>{{employee.name}}</td>
                     <td>{{employee.age}}</td>
+                    <td><a href="">Actualizar</a></td>
+                    <td><a href="">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </tbody>

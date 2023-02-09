@@ -11,19 +11,23 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>placa</th>
-                <th>tipo</th>
-                <th>precio</th>
+                <th>Id</th>
+                <th>Placa</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
-            {% for vehicles in vehicles %}
+            {% for vehicle in vehicle %}
                 <tr>
                     <td>{{vehicle.id}}</td>
                     <td>{{vehicle.license_plate}}</td>
                     <td>{{vehicle.vehicle_type}}</td>
                     <td>{{vehicle.vehicle_price}}</td>
+                    <td><a href="">Actualizar</a></td>
+                    <td><a href="">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </tbody>

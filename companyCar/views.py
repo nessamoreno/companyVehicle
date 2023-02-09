@@ -17,7 +17,7 @@ class VehicleList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(VehicleList, self).get_context_data(**kwargs)
         vehicles = Vehicle.objects.all().annotate(vehicle_type = F('veh_typ_id__type')).annotate(vehicle_price= F('veh_typ_id__price')).values()
-        context['vehicles'] = vehicles
+        context['vehicle'] = vehicles
 
         return context
     
@@ -27,15 +27,29 @@ class EmployeeList(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(EmployeeList, self).get_context_data(**kwargs)
-        employee = Employee.objects.all().values()
-        context['employee'] = employee
+        employees = Employee.objects.all().values()
+        context['employee'] = employees
 
         return context
 
-class Client():
-    def list_client(request):
-        return render(request,'/clients/client.html')
+class ClientList(generic.ListView):
+    model = Client
+    template_name = 'client.html'
 
-class Rent():
-    def list_rent(request):
-        return render(request,'/clients/rent.html')
+    def get_context_data(self, **kwargs):
+        context = super(ClientList,self).get_context_data(**kwargs)
+        clients = Client.objects.all().values()
+        context['client'] = clients
+
+        return context
+
+class RentList(generic.ListView):
+    model = Rent
+    template_name = 'rent.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(RentList,self).get_context_data(**kwargs)
+        rents = Rent.objects.all().annotate(licen_plate = F('veh_id_id__license_plate')).annotate(name_client = F('cli_id_id__name')).annotate(name_employee = F('emp_id_id__name')).annotate(type = F ('veh_id_id__veh_typ_id_id__type')).annotate(price = F ('veh_id_id__veh_typ_id_id__price')).values()
+        context['rent'] = rents
+
+        return context

@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>ALQUILAR</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALQUILAR</title>
 </head>
 <body>
     <h1>HELLOS PERROS ESTAMOS EN LA PÁGINA ALQUILAR</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Fecha inicio</th>
+                <th>Fecha final</th>
+                <th>Id Vehiculo</th>
+                <th>Placa</th>
+                <th>tipo</th>
+                <th>precio</th>
+                <th>Id Cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Id Empleado</th>
+                <th>Nombre Empleado</th>
+                <th>Pagar</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rent in rent %}
+                <tr>
+                    <td>{{rent.id}}</td>
+                    <td>{{rent.start_date}}</td>
+                    <td>{{rent.final_date}}</td>
+                    <td>{{rent.veh_id_id}}</td>
+                    <td>{{rent.licen_plate}}</td>
+                    <td>{{rent.type}}</td>
+                    <td>{{rent.price}}</td>
+                    <td>{{rent.cli_id_id}}</td>
+                    <td>{{rent.name_client}}</td>
+                    <td>{{rent.emp_id_id}}</td>
+                    <td>{{rent.name_employee}}</td>
+                    <td><a href="#">Pagar</a></td>
+                    <td><a href="#">Actualizar</a></td>
+                    <td><a href="#">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
