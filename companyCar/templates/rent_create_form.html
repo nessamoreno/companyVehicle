@@ -10,32 +10,87 @@
     <title>CREAR ALQUILER</title>
 </head>
 <body>
-    <form method="POST" action="{% url 'companyCar:createRent' %}">
+    <div>
+        <form method="POST" action="{% url 'companyCar:createRent' %}">
 
-        {% csrf_token %}
-        {{ form }}
-        <select name="veh_id" lass="form-select" aria-label="Default select example">
-            <option selected value="0">Seleccionar vehiculo</option>
-            {% for vehicle in vehicles %}
-                <option value="{{vehicle.id}}">{{vehicle.license_plate}}</option>
-            {% endfor %}
-        </select>
-    
-        <select name="emp_id" lass="form-select" aria-label="Default select example">
-            <option selected value="0">Seleccionar empleado</option>
-            {% for employee in employees %}
-                <option value="{{employee.id}}">{{employee.name}}</option>
-            {% endfor %}
-        </select>
-    
-        <select name="cli_id" lass="form-select" aria-label="Default select example">
-            <option selected value="0">Seleccionar cliente</option>
-            {% for client in clients %}
-                <option value="{{client.id}}">{{client.name}}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" class="btn btn-primary">Crear Renta</button>
-    </form>
-    
+            {% csrf_token %}
+            {{ form  }}
+            <div>
+                <select name="veh_id" lass="form-select" aria-label="Default select example">
+                    <option selected value="0">Seleccionar vehiculo</option>
+                    {% for vehicle in vehicles %}
+                        <option value="{{vehicle.id}}">{{vehicle.license_plate}}</option>
+                    {% endfor %}
+                </select>
+                <select name="emp_id" lass="form-select" aria-label="Default select example">
+                    <option selected value="0">Seleccionar empleado</option>
+                    {% for employee in employees %}
+                        <option value="{{employee.id}}">{{employee.name}}</option>
+                    {% endfor %}
+                </select>
+                <select name="cli_id" lass="form-select" aria-label="Default select example">
+                    <option selected value="0">Seleccionar cliente</option>
+                    {% for client in clients %}
+                        <option value="{{client.id}}">{{client.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <button type="submit">Crear Renta</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+    *{
+        background-color:#1A2449 ;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+    }
+    h1{
+        text-align: center;
+        color: #fff;
+        font-weight: bolder;
+    }
+
+    div{
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    button{
+        background: #000000;
+        color: #798EFC;
+        font-size: 20px;
+        font-weight: bolder;
+        width: 250px;
+        height: 70px;
+        border-radius: 25px;
+        border: #fff solid 2px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    select{
+        background: #000000;
+        color: #798EFC;
+        font-size: 15px;
+        font-weight:normal;
+        width: 200px;
+        height: 60px;
+        border-radius: 20px;
+        border: #fff solid 2px;
+        text-align: center;
+    }
+
+    button:hover { cursor: pointer; }
+</style>

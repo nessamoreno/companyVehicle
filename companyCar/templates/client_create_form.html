@@ -11,16 +11,58 @@
     <title>CREAR CLIENTE</title>
 </head>
 <body>
-    <form method="POST" action="{% url 'companyCar:createClient'  %}">
-        {% csrf_token %}
-
-        
-        <div class="mb-3">
-            {{ form}}
-        </div>
-
-
-        <button type="submit" class="btn btn-primary">Crear Cliente</button>
-    </form>
+    <div>
+        <form method="POST" action="{% url 'companyCar:createClient'  %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.identification|as_crispy_field }}
+                {{ form.name|as_crispy_field }}
+                {{ form.number|as_crispy_field }}
+                {{ form.age|as_crispy_field }}
+            </div>
+            <div>
+            <button type="submit">Crear Cliente</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+    *{
+        background-color:#1A2449 ;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+    }
+    h1{
+        text-align: center;
+        color: #fff;
+        font-weight: bolder;
+    }
+
+    div{
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    button{
+        background: #000000;
+        color: #798EFC;
+        font-size: 20px;
+        font-weight: bolder;
+        width: 250px;
+        height: 70px;
+        border-radius: 25px;
+        border: #fff solid 2px;
+        text-align: center;
+    }
+
+    button:hover { cursor: pointer; }
+</style>

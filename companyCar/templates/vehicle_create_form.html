@@ -11,23 +11,77 @@
     <title>CREAR VEHICULO</title>
 </head>
 <body>
-    <form method="POST" action="{% url 'companyCar:createVehicle'  %}">
-        {% csrf_token %}
-
-        
-        <div class="mb-3">
-            {{ form.license_plate|as_crispy_field }}
-        </div>
-        <div>
-            <select name="veh_typ_id" lass="form-select" aria-label="Default select example">
-                <option selected value="0">Seleccionar</option>
-                {% for type in vehicles_type %}
-                    <option value="{{type.id}}">{{type.type}}</option>
-                {% endfor %}
-              </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Crear vehiculo</button>
-    </form>
+    <div>
+        <form method="POST" action="{% url 'companyCar:createVehicle'  %}">
+            {% csrf_token %}
+    
+            
+            <div class="mb-3">
+                {{ form.license_plate|as_crispy_field }}
+            </div>
+            <div>
+                <select name="veh_typ_id" lass="form-select" aria-label="Default select example">
+                    <option selected value="0">Seleccionar</option>
+                    {% for type in vehicles_type %}
+                        <option value="{{type.id}}">{{type.type}}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+            <div>
+            <button type="submit">Crear vehiculo</button>
+    
+            </div>
+        </form>
+    </div> 
 </body>
 </html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+    *{
+        background-color:#1A2449 ;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+    }
+    h1{
+        text-align: center;
+        color: #fff;
+        font-weight: bolder;
+    }
+
+    div{
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    button{
+        background: #000000;
+        color: #798EFC;
+        font-size: 20px;
+        font-weight: bolder;
+        width: 250px;
+        height: 70px;
+        border-radius: 25px;
+        border: #fff solid 2px;
+        text-align: center;
+    }
+
+    select{
+        background: #000000;
+        color: #798EFC;
+        font-size: 15px;
+        font-weight: bolder;
+        width: 150px;
+        height: 60px;
+        border-radius: 20px;
+        border: #fff solid 2px;
+    }
+
+    button:hover { cursor: pointer; }
+</style>

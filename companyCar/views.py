@@ -1,29 +1,31 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-# from django.http import HttpRequest
-# from django.views import View
-# from django.views import *
-# from django.http.response import JsonResponse
-# from django.http.request import JsonRequest
 from .forms import *
 from django.views import generic
 from .models import *
 from django.db.models import F
 # Create your views here.
 
+
+#CREATE VIEW MAIN
+class Index(generic.TemplateView):
+    template_name = 'index.html'
+
+
+# CREATE CLASS VEHICLE LIST
 class VehicleList(generic.ListView):
     model = Vehicle
     template_name = 'vehicle.html'
 
     def get_context_data(self, **kwargs):
         context = super(VehicleList, self).get_context_data(**kwargs)
-        vehicles = Vehicle.objects.all().annotate(vehicle_type = F('veh_typ_id__type')).annotate(vehicle_price= F('veh_typ_id__price')).values()
+        vehicles = Vehicle.objects.all().annotate(vehicle_type = F('veh_typ_id__type')).annotate(vehicle_price= F('veh_typ_id__price')).order_by('id').values()
         context['vehicle'] = vehicles
 
         return context
 
-
+# CREATE CLASS VEHICLE CREATE
 class VehicleCreate(generic.FormView):
     template_name = 'vehicle_create_form.html'
     model = Vehicle
@@ -50,6 +52,7 @@ class VehicleCreate(generic.FormView):
 
         return HttpResponseRedirect(reverse("companyCar:listVehicle"))
 
+#CREATE CLASS EMPLOYEE LIST
 class EmployeeList(generic.ListView):
     model = Employee
     template_name = 'employee.html'
@@ -61,6 +64,7 @@ class EmployeeList(generic.ListView):
 
         return context
 
+#CREATE CLASS EMPLOYEE CREATE
 class EmployeeCreate(generic.FormView):
     template_name = 'employee_create_form.html'
     model = Employee
@@ -80,6 +84,7 @@ class EmployeeCreate(generic.FormView):
 
         return HttpResponseRedirect(reverse("companyCar:listEmployee"))
 
+#CREATE CLASS CLIENT LIST
 class ClientList(generic.ListView):
     model = Client
     template_name = 'client.html'
@@ -91,6 +96,7 @@ class ClientList(generic.ListView):
 
         return context
 
+#CREATE CLASS CLIENT CREATE
 class ClientCreate(generic.CreateView):
     template_name = 'client_create_form.html'
     model = Client
@@ -111,6 +117,8 @@ class ClientCreate(generic.CreateView):
         dataClient.save()
 
         return HttpResponseRedirect(reverse("companyCar:listClient"))
+
+#CREATE CLASS RENT LIST
 class RentList(generic.ListView):
     model = Rent
     template_name = 'rent.html'
@@ -122,6 +130,7 @@ class RentList(generic.ListView):
 
         return context
 
+#CREATE CLASS RENT CREATE
 class RentCreate(generic.CreateView):
     template_name = 'rent_create_form.html'
     model = Rent
