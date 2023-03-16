@@ -10,3 +10,8 @@ Although the requested indications were completed successfully, I would need to 
     ### 2. package manager pip v20.0.2
     ### 3. Mysql
 
+
+
+This is a work from uniremington university which implemented Python and Django to be carried out.
+
+Although the requested indications were completed successfully, I would need to implement certain things to make it look great, such as functions to delete, update and some filters.
