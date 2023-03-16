@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+
 class vehicleFormCreate(forms.ModelForm):
     vehicles = VehicleType.objects.all().values()
     veh_typ_id = forms.ModelChoiceField(
