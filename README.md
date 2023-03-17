@@ -26,11 +26,13 @@ In short, this Uniremington university project uses Python and Django to develop
 **This command will install all the necessary dependencies for the project, which are found in the requirements.txt file.**
    
 #### 2. Verify the deployment by navigation
--After the installations are complete, you are ready to start the Django development server to test the project. To start the server, use the following command:
+- After the installations are complete, you are ready to start the Django development server to test the project. To start the server, use the following command:
 ##### python3 manage.py runserver
 ##### http://127.0.0.1:8000/
 
 #### 3. Modify env file for database connection
+
+## Abstract
 Despite having successfully completed the indications requested for the project, it is necessary to implement some additional functions to improve the functionality and aesthetics of the application. Among the functions that must be implemented are the possibility of deleting and updating information, as well as the inclusion of some filters that allow a more efficient search of available vehicles.
 
 Implementing these additional features will not only improve the user experience when using the app, but will also ensure that the car rental company can manage its inventory more efficiently and effectively. With these improvements, the application will be even more useful and practical for users and will help the company to provide better service to its customers.
