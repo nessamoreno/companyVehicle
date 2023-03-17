@@ -14,15 +14,15 @@ In short, this Uniremington university project uses Python and Django to develop
 ## How to Install
 #### 1. Create a virtual environment
 - Create a virtual Python environment for the project. You can do it using the following command in the terminal:
-    **python3 -m venv virtual_environment_name**
+    **python3 -m venv `virtual_environment_name`**
 
 - Activate the virtual environment. In the terminal, run the following command:
-    **source virtual_environment_name/bin/activate**
+    **source `virtual_environment_name`/bin/activate**
 
-***Remember to replace `virtual_environment_name` with whatever name you have chosen for the virtual environment***
+**Remember to replace `virtual_environment_name` with whatever name you have chosen for the virtual environment**
 
 - Once the virtual environment is up, you need to install the Django and Python dependencies. To do this, you can use the following command:
-    ***pip install -r requirements.txt***
+    **pip install -r requirements.txt**
 **This command will install all the necessary dependencies for the project, which are found in the requirements.txt file.**
    
 #### 2. Verify the deployment by navigation
